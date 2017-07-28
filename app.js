@@ -36,29 +36,28 @@ app.post('/', function (req, res) {
         password : 'nate',
         database : 'rainbow'
     });
-    //connect to MySQL and query
+    
+    //connect to MySQL
     connection.connect(function(err) {
       if (err){
        console.log("Cannot connect to database");
        throw err;
       }
-      console.log("connected to db");
-      
-      
+      console.log("connected to db");      
     });
 
-
-      var query = 'SELECT * FROM color;';
-      connection.query(query, function (err, result) {
-          if (err){
-            console.log("error with query")
-            throw err;
-          }
-          console.log('query sent\n');
-          var table = convertToTable(result);
-          res.send(table);
-          connection.end();
-      });
+    // Query MySQL
+    var query = 'SELECT * FROM color;';
+    connection.query(query, function (err, result) {
+        if (err){
+          console.log("error with query")
+          throw err;
+        }
+        console.log('query sent\n');
+        var table = convertToTable(result);
+        res.send(table);
+        connection.end();
+    });
 });
 
 // Begin listening
