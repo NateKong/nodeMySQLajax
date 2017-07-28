@@ -28,13 +28,13 @@
     <h4>This is what happens</h4>
     <ol>
         <li>You use node (express actually) to start app.js</li>
-        <li>If it works terminal will say something like "Express server listening on port 3000 in development mode"</li>
-        <li>You opened a browser and went to localhost:3000. This call went to app.js which opened index.html</li>
-        <li>In the index.html the document waits until the DOM becomes safe. Then it uses ajax to post a query to MySQL</li>
-        <li>app.js receives the post from index.html and send the query to MySQL</li>
-        <li>app.js gets the results from MySQL and sends it to index.html.</li>
+        <li>If it works, terminal will say something like "Express server listening on port 7000 in development mode"</li>
+        <li>You opened a browser and went to localhost:7000. This call went to app.js which opened index.html through app.get</li>
+        <li>In the index.html the document waits until the DOM becomes safe. Then it uses ajax to post app.js</li>
+        <li>app.js receives the post and sends the query to MySQL</li>
+        <li>app.js gets the results from MySQL parses the JSON to a HTML table and sends it to index.html.</li>
     </ol>
-    <p>The results are below</p>
+    <p>The results below are from MySQL</p>
     <br>
     <span id="output"></span>
   </body>
